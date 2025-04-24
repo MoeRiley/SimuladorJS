@@ -31,7 +31,7 @@ let productsContainer = document.getElementById("products-container")
 function renderProductos(productsArray) {
     productsArray.forEach(producto => {
         const card = document.createElement("div")
-        card.innerHTML =   `<div class="card mb-3 text-center" style="max-width: 540px;">
+        card.innerHTML =   `<div class="card mb-3 text-center">
                                 <div class="row g-0">
                                     <div class="col-md-4">
                                         <img src=${producto.imagen} class="img-fluid rounded-start" alt="Imagen del Producto">
