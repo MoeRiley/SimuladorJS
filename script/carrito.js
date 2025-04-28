@@ -1,8 +1,13 @@
+//el getItem
 let cartStorage = localStorage.getItem("cartProducts")
+
+//transformador JSON 
 cartStorage = JSON.parse(cartStorage)
 
+//el getElement by id
 let cartContainer = document.getElementById("cart-section")
 
+//render carrito
 function renderCarrito(cartItems) {
     cartItems.forEach(producto => {
         const cart = document.createElement("div")

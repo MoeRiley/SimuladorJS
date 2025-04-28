@@ -1,33 +1,29 @@
-const productos= [
-    {
-        id: 1,
-        nombre: "Carrito TE 30",
-        precio: 180000,
-        imagen: "/media/carrito-te30.jpg"
-    },
-    {
-        id: 2,
-        nombre: "Carrito RD 30",
-        precio: 200000,
-        imagen: "/media/carrito-rd30.jpg"
-    },  
-    {
-        id: 3,
-        nombre: "Barra JD",
-        precio: 90000,
-        imagen: "/media/barra-tarros.jpg"
-    },
-    {
-        id: 4,
-        nombre: "Barra BT",
-        precio: 60000,
-        imagen: "/media/barra-botellas.jpg"
-    },
-]
+let productos = []
 
+//constructor de productos
+class produc {
+    static id = 0
+    constructor (nombre, precio, imagen) {
+        this.id = ++produc.id,
+        this.nombre = nombre,
+        this.precio = precio,
+        this.imagen = imagen
+    }
+}
+
+//agregador de productos
+productos.push(new produc("Carrito TE 30", 180000, "/media/carrito-te30.jpg"))
+productos.push(new produc("Carrito RD 60", 200000, "/media/carrito-rd30.jpg"))
+productos.push(new produc("Barra JD", 90000, "/media/barra-tarros.jpg"))
+productos.push(new produc("Barra BT", 60000, "/media/barra-botellas.jpg"))
+
+//array de carrito
 let cartProducts = []
+
+//el getElement by id
 let productsContainer = document.getElementById("products-container")
 
+//renderizador de productos
 function renderProductos(productsArray) {
     productsArray.forEach(producto => {
         const card = document.createElement("div")
@@ -53,6 +49,7 @@ function renderProductos(productsArray) {
 }
 renderProductos(productos)
 
+//creador de carrito
 function addToCartButton () {
     addButton = document.querySelectorAll(".productoAgregar")
     addButton.forEach(button => {
