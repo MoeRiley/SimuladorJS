@@ -1,13 +1,9 @@
-//el getItem
 let cartStorage = localStorage.getItem("cartProducts")
 
-//transformador JSON 
 cartStorage = JSON.parse(cartStorage)
 
-//el getElement by id
 let cartContainer = document.getElementById("cart-section")
 
-//render carrito
 function renderCarrito(cartItems) {
     cartItems.forEach(producto => {
         const cart = document.createElement("div")
@@ -20,12 +16,33 @@ function renderCarrito(cartItems) {
                                         <div class="card-body">
                                             <h3 class="card-title">${producto.nombre}</h3>
                                             <p class="card-text">$${producto.precio}</p>
-                                            <button class="btn btn-danger" id="${producto.id}">Eliminar</button>
+                                            <button class="productoEliminar btn btn-danger" id="${producto.id}">Eliminar</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>`
         cartContainer.appendChild(cart)
     })
+    deleteElementButton()
 }
 renderCarrito(cartStorage)
+
+function deleteElementButton() {
+    const deleteButtons = document.querySelectorAll(".productoEliminar")
+    deleteButtons.forEach(button => {
+        button.onclick = (e) => {
+            const productId = Number(e.currentTarget.id)
+            cartStorage = cartStorage.filter(producto => producto.id !== productId)
+            localStorage.setItem("cartProducts", JSON.stringify(cartStorage))
+            cartContainer.innerHTML = ""
+            renderCarrito(cartStorage)
+            console.log(cartStorage)
+        }
+    })
+}
+
+let clearCarrito = document.getElementById ("clear")
+clearCarrito.onclick = () => {
+    localStorage.clear()
+    cartContainer.innerHTML = ""
+}

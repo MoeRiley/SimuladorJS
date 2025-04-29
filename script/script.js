@@ -155,3 +155,110 @@ function initProcess() {
         }
     }
 }
+
+//buscador
+//let buscado = document.getElementById("buscado")
+//buscado.innerHTML = `<div>
+//                        <p>${buscado}</p>
+//                    </div>`
+//let buscados = []
+//let buscadosContainer = document.getElementById("buscado")
+
+//renderizador de productos
+//function renderBuscados(buscadArray) {
+//    buscadosContainer.innerHTML = "";
+    //recorre el array
+//    buscadArray.forEach(buscados => {
+        //crea la card
+//        const card2 = document.createElement("div")
+        //crea la card en el html
+//        card2.innerHTML =   `<div>
+//                                ${buscados.precio} 
+//                            </div>`
+                                                    //lo del Stock es solo si alcanzo
+        //lo agrega en el div del id productsContainer
+//        buscadosContainer.appendChild(card2)
+//    })
+    //llamado a la funcion
+//    addToCartButton()
+//}
+//llamado a la funcion
+
+
+//let buscador = document.getElementById("buscador")
+//buscador.onchange = () => {
+//    const buscado = productos.find(productos => productos.nombre === buscador.value);
+//    if (buscado) {
+//        buscados.push(buscado);
+//        renderBuscados(buscados);
+//    } else {
+//        console.log("producto no encontrado")
+//    }
+//}
+
+
+//funciones de orden superior
+
+//forEach
+//productos.forEach(producto => {
+//    console.log(producto)
+//})
+
+//find
+//const busqueda = productos.find(producto => producto.nombre == "Carrito TE 30")
+//console.log(busqueda)
+
+//filter
+//let precioMaximo = parseInt(prompt("Cual es tu precio maximo"))
+//const filtrados = productos.filter(producto => producto.precio <= 100000)
+//console.log(filtrados)
+
+//filter corto
+//const filtro = productos.filter(producto => producto.nombre.includes("Carrito"))
+//console.log(filtro)
+
+//some (sirve para no repetir productos en el carrito, pero este ejemplo sera para ver el stock)
+
+//console.log(productos.some(producto => producto.nombre == "Barra JD"))
+
+//let buscar = prompt("ingrese el producto a buscar a ver si hay stock")
+//let hayStock = productos.some(producto => producto.nombre == buscar)
+//if (hayStock) {
+//    console.log("producto en stock, revisar en el deposito")
+//} else {
+//    console.log("no hay stock")
+//}
+
+//map
+//const productosDisponibles = productos.map(producto => producto.nombre)
+//console.log(productosDisponibles)
+
+//descuento (util para BlackF o para calcular impuestos)
+//const descuento = productos.map(producto => {
+//    let precioDescuento = producto.precio - (producto.precio*20/100)
+//    return {
+//        nombre: producto.nombre,
+//        precio: precioDescuento
+//    }
+//})
+//console.log(descuento)
+
+//ej IVA
+//const iva = productos.map(producto => {
+//    let precioIvaIncluido = producto.precio + (producto.precio*19/100)
+//    return {
+//        nombre: producto.nombre,
+//        precio: precioIvaIncluido
+//    }
+//})
+//console.log(iva)
+
+//reduce (para el total del carrito de compras)
+//const total = productos.reduce((contador, producto) => contador + producto.precio, 0)
+//console.log(total)
+
+//Eventos (Click)
+//let clearCarrito = document.getElementById ("clear")
+//clearCarrito.onclick = () => {
+//    localStorage.clear()
+//}
