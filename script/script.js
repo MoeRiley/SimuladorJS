@@ -1,264 +1,59 @@
-// Comentarios para la correcion: Hola profe, este es un simulador de compra y venta de jugadores para el equipo "Pumas". El Draft son los jugadores disponibles para ser adquiridos por el club. El Club puede tener un maximo de 5 jugadores. El simulador permite: 1- Ver el equipo actual de pumas, 2- Adquirir jugadores del draft y 3- Vender jugadores. Para esta entrega, en la simulacion de Compra utilice una Function, mientras que para la de Venta utilice Switch. La simulacion presenta los siguientes desafios: 1- Aun no se como borrar los jugadores adquiridos del array Draft, mismo caso con los jugadores vendidos y el array Pumas. Entiendo que se puede lograr con "Splice" pero no encuentro en las clases si es que lo vimos o no, por lo que no lo utilizare para esta entrega. 
+let productos = []
 
-
-const jugadores = ["Jale Hurts", "Bo Nix", "Curtland Sutton", "Saquon Barckley", "Sam LaPorta", "Cooper DeJean", "DeAndre Hopkins", "Cooper Kupp"]
-
-const jugador1 = {
-    jugador: "Jale Hurts",
-    posicion: "QB",
-    overall: "80",
-    equipo: "Pumas"
-}
-
-const jugador2 = {
-    jugador: "Bo Nix",
-    posicion: "QB",
-    overall: "78",
-    equipo: "Pumas"
-}
-
-const jugador3 = {
-    jugador: "Curtland Sutton",
-    posicion: "WR",
-    overall: "85",
-    equipo: "Pumas"
-}
-
-const jugador4 = {
-    jugador: "Saquon Barckley",
-    posicion: "RB",
-    overall: "90",
-    equipo: "Pumas"
-}
-
-const jugador5 = {
-    jugador: "Sam LaPorta",
-    posicion: "TE",
-    overall: "83",
-    equipo: "Draft"
-}
-
-const jugador6 = {
-    jugador: "Cooper DeJean",
-    posicion: "DB",
-    overall: "81",
-    equipo: "Draft"
-}
-
-const jugador7 = {
-    jugador: "DeAndre Hopkins",
-    posicion: "WR",
-    overall: "84",
-    equipo: "Draft"
-}
-
-const jugador8 = {
-    jugador: "Cooper Kupp",
-    posicion: "WR",
-    overall: "92",
-    equipo: "Draft"
-}
-
-const pumas = [jugador1, jugador2, jugador3, jugador4]
-
-const draft = [jugador5, jugador6, jugador7, jugador8]
-
-let nombre = prompt("Hola, por favor ingresa tu nombre:")
-
-saludar(nombre)
-
-function saludar(nombre) {
-    console.log(`Bienvenido, ${nombre}`);
-}
-
-initProcess()
-
-function initProcess() {
-    let continuar = true
-    while (continuar) {
-        let menu = parseInt(prompt("Menu: \n 1 Ver Equipo \n 2 Adquirir jugador \n 3 Vender jugador \n Otra tecla para Salir"))
-    
-        switch(menu) {
-            case 1:
-
-                console.log("Jugadores de Pumas")
-
-                for (const puma of pumas) {
-                console.log("Nombre: "+puma.jugador+" | Posición: "+puma.posicion+" | Overall: "+puma.overall)
-                }
-
-                break
-
-            case 2:
-
-                console.log("Jugadores del Draft 2025")
-                
-                for (const agente of draft) {
-                console.log("Nombre: "+agente.jugador+" | Posición: "+agente.posicion+" | Overall: "+agente.overall)
-                }
-                
-                if (pumas.length <= 5) {
-
-                    function adquirirJugador(nombreJugador) {
-                        let jugadorAdquirido = draft.find(draft => draft.jugador.toLocaleLowerCase() === nombreJugador.toLocaleLowerCase());
-                        if (jugadorAdquirido) { 
-                            pumas.push(jugadorAdquirido)
-                            console.log(`El jugador "${nombreJugador}" ha sido adquirido por pumas`); 
-                        } else {
-                            console.log("Este jugador ya no está disponible.")
-                        }
-                    }
-
-                    adquirirJugador(prompt("Que jugador desea adquirir: "))
-
-                } else {
-                    alert("Lo siento, ya alcanzaste el limite de jugadores. No puedes comprar otro jugador")
-                }
-                break
-
-            case 3:
-
-                console.log("Jugadores de Pumas")
-
-                for (const puma of pumas) {
-                console.log("Nombre: "+puma.jugador+" | Posición: "+puma.posicion+" | Overall: "+puma.overall)
-                }
-                
-                let vender = parseInt(prompt("Que jugador desea vender: \n 1 "+`${jugador1.jugador}`+" \n 2 "+`${jugador2.jugador}`+" \n 3 "+`${jugador3.jugador}`+" \n 4 "+`${jugador4.jugador}`+" \n Otra tecla para Salir"))
-    
-                switch(vender) {
-                    case 1:
-                        draft.push(jugador1)
-                        console.log("vendiste a Jalen Hurts")
-                        break
-                    case 2:
-                        draft.push(jugador2)
-                        console.log("vendiste a Bo Nix")
-                        break
-                    case 3:
-                        draft.push(jugador3)
-                        console.log("vendiste a Curtland Sutton")
-                        break
-                    case 4:
-                        draft.push(jugador4)
-                        console.log("vendiste a Saquon Barckley")
-                        break     
-                }
-
-                break
-        }
-    
-        let confirmacion = prompt("Se cerrará la sesión, quieres realizar otra operación (si/no)?").toLowerCase()
-        if(confirmacion == "no") {
-            continuar = false
-            console.log(`Hasta pronto, ${nombre}`)
-        }
+class produc {
+    static id = 0
+    constructor (nombre, precio, descripcion, imagen) {
+        this.id = ++produc.id,
+        this.nombre = nombre,
+        this.precio = precio,
+        this.descripcion = descripcion,
+        this.imagen = imagen
     }
 }
 
-//buscador
-//let buscado = document.getElementById("buscado")
-//buscado.innerHTML = `<div>
-//                        <p>${buscado}</p>
-//                    </div>`
-//let buscados = []
-//let buscadosContainer = document.getElementById("buscado")
+productos.push(new produc("Cart TE 30", 180000, "Carro de Terciado de pino barnizado, con cubierta lisa, que soporta 30 kg de carga. Ideal para todo tipo de eventos.", "../media/carrito-te30.jpg"))
+productos.push(new produc("Cart RD 60", 200000, "Carro de Terciado Ranurado de pino barnizado, con cubierta lisa, que soporta 30 kg de carga. Ideal para todo tipo de eventos.", "../media/carrito-rd30.jpg"))
+productos.push(new produc("Barra JD", 90000, "Barra de Barriles Jack Daniels, con cubierta lisa de pino barnizado, que soporta 30 kg de carga. Ideal para eventos de catering y mixología.", "../media/barra-tarros.jpg"))
+productos.push(new produc("Barra BT", 60000, "Barra estilo Bar con ranuras en formato cava, con cubierta lisa de pino barnizado, que soporta 30 kg de carga. Ideal para decorar espacios dedicados.", "../media/barra-botellas.jpg"))
 
-//renderizador de productos
-//function renderBuscados(buscadArray) {
-//    buscadosContainer.innerHTML = "";
-    //recorre el array
-//    buscadArray.forEach(buscados => {
-        //crea la card
-//        const card2 = document.createElement("div")
-        //crea la card en el html
-//        card2.innerHTML =   `<div>
-//                                ${buscados.precio} 
-//                            </div>`
-                                                    //lo del Stock es solo si alcanzo
-        //lo agrega en el div del id productsContainer
-//        buscadosContainer.appendChild(card2)
-//    })
-    //llamado a la funcion
-//    addToCartButton()
-//}
-//llamado a la funcion
+let cartProducts = []
 
+let productsContainer = document.getElementById("products-container")
 
-//let buscador = document.getElementById("buscador")
-//buscador.onchange = () => {
-//    const buscado = productos.find(productos => productos.nombre === buscador.value);
-//    if (buscado) {
-//        buscados.push(buscado);
-//        renderBuscados(buscados);
-//    } else {
-//        console.log("producto no encontrado")
-//    }
-//}
+function renderProductos(productsArray) {
+    productsArray.forEach(producto => {
+        const card = document.createElement("div")
+        card.innerHTML =   `<div class="card mb-3 text-center">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src=${producto.imagen} class="img-fluid rounded-start" alt="Imagen del Producto">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h3 class="card-title">${producto.nombre}</h3>
+                                            <p class="card-text">${producto.descripcion}</p>
+                                            <p class="card-text">$${producto.precio}</p>
 
+                                            <button class="productoAgregar btn btn-primary" id="${producto.id}">Agregar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`
+        productsContainer.appendChild(card)
+    })
+    addToCartButton()
+}
+renderProductos(productos)
 
-//funciones de orden superior
-
-//forEach
-//productos.forEach(producto => {
-//    console.log(producto)
-//})
-
-//find
-//const busqueda = productos.find(producto => producto.nombre == "Carrito TE 30")
-//console.log(busqueda)
-
-//filter
-//let precioMaximo = parseInt(prompt("Cual es tu precio maximo"))
-//const filtrados = productos.filter(producto => producto.precio <= 100000)
-//console.log(filtrados)
-
-//filter corto
-//const filtro = productos.filter(producto => producto.nombre.includes("Carrito"))
-//console.log(filtro)
-
-//some (sirve para no repetir productos en el carrito, pero este ejemplo sera para ver el stock)
-
-//console.log(productos.some(producto => producto.nombre == "Barra JD"))
-
-//let buscar = prompt("ingrese el producto a buscar a ver si hay stock")
-//let hayStock = productos.some(producto => producto.nombre == buscar)
-//if (hayStock) {
-//    console.log("producto en stock, revisar en el deposito")
-//} else {
-//    console.log("no hay stock")
-//}
-
-//map
-//const productosDisponibles = productos.map(producto => producto.nombre)
-//console.log(productosDisponibles)
-
-//descuento (util para BlackF o para calcular impuestos)
-//const descuento = productos.map(producto => {
-//    let precioDescuento = producto.precio - (producto.precio*20/100)
-//    return {
-//        nombre: producto.nombre,
-//        precio: precioDescuento
-//    }
-//})
-//console.log(descuento)
-
-//ej IVA
-//const iva = productos.map(producto => {
-//    let precioIvaIncluido = producto.precio + (producto.precio*19/100)
-//    return {
-//        nombre: producto.nombre,
-//        precio: precioIvaIncluido
-//    }
-//})
-//console.log(iva)
-
-//reduce (para el total del carrito de compras)
-//const total = productos.reduce((contador, producto) => contador + producto.precio, 0)
-//console.log(total)
-
-//Eventos (Click)
-//let clearCarrito = document.getElementById ("clear")
-//clearCarrito.onclick = () => {
-//    localStorage.clear()
-//}
+function addToCartButton () {
+    addButton = document.querySelectorAll(".productoAgregar")
+    addButton.forEach(button => {
+        button.onclick = (e) => {
+            const productId= e.currentTarget.id
+            const selecterProducts = productos.find(producto => producto.id == productId)
+            cartProducts.push(selecterProducts)
+            console.log(cartProducts)
+            localStorage.setItem("cartProducts", JSON.stringify(cartProducts))
+        }
+    })
+}
