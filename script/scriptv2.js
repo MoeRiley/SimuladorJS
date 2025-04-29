@@ -33,13 +33,12 @@ function renderProductos(productsArray) {
                                             <h3 class="card-title">${producto.nombre}</h3>
                                             <p class="card-text">${producto.descripcion}</p>
                                             <p class="card-text">$${producto.precio}</p>
-                                            <p class="card-text"><small class="text-body-secondary">Stock disponible: 5</small></p>
+
                                             <button class="productoAgregar btn btn-primary" id="${producto.id}">Agregar</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>`
-                                                    //lo del Stock es solo si alcanzo
         productsContainer.appendChild(card)
     })
     addToCartButton()

@@ -11,5 +11,5 @@ let precioFinal = document.getElementById("totalapagar")
 const card3 = document.createElement("div")
 card3.innerHTML =   `<p>Subtotal: $${subtotal}</p>
                     <p>+ IVA</p>
-                    <p>El total a pagar es: $${iva}</p>`
+                    <p>Total a pagar: $${iva}</p>`
 precioFinal.appendChild(card3)

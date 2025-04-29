@@ -34,7 +34,7 @@
                     </ul>
                     <div class="d-flex">
                         <button class="btn btn-outline-primary">
-                            <a href="../pages/carrito.html" class="link">Carrito</a>
+                            <a href="../pages/pago.html">Ir a pagar</a>
                         </button>
                     </div>
                 </div>
@@ -43,11 +43,20 @@
     </header>
     <main>
         <h1>Carrito de compras</h1>
-        <h2><a href="../pages/productos.html">Volver a Productos</a></h2>
-        <button id="clear">Vaciar carrito</button>
-        <button id="pagar"><a href="../pages/pago.html">ir a pagar</a></button>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button id="pagar" type="button" class="btn btn-outline-primary">
+                <a href="../pages/productos.html" class="btn-outline-primary">Volver a Productos</a>
+            </button>
+            <div class="vr"></div>
+            <button id="clear" type="button" class="btn btn-outline-danger">Vaciar Carrito</button>
+        </div>
         <section>
             <div id="cart-section"></div>
+            <div class="d-grid gap-2">
+                <button id="pagar" class="btn btn-primary" type="button">
+                    <a href="../pages/pago.html" class="btn btn-primary">Ir a pagar</a>
+                </button>
+            </div>
         </section>
     </main>
     <footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary" data-bs-theme="dark">
