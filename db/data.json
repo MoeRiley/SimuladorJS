@@ -1,0 +1,31 @@
+[
+    {
+        "nombre": "Cart TE 30",
+        "precio": 1000,
+        "descripcion": "Carro de Terciado de pino barnizado, con cubierta lisa, que soporta 30 kg de carga. Ideal para todo tipo de eventos.",
+        "imagen": "../media/carrito-te30.jpg",
+        "cantidad": 1
+    },
+    {
+        "nombre": "Cart RD 60",
+        "precio": 200000,
+        "descripcion": "Carro de Terciado Ranurado de pino barnizado, con cubierta lisa, que soporta 30 kg de carga. Ideal para todo tipo de eventos.",
+        "imagen": "../media/carrito-rd30.jpg",
+        "cantidad": 0
+    },
+    {
+        "nombre": "Barra JD",
+        "precio": 90000,
+        "descripcion": "Barra de Barriles Jack Daniels, con cubierta lisa de pino barnizado, que soporta 30 kg de carga. Ideal para eventos de catering y mixología.",
+        "imagen": "../media/barra-tarros.jpg",
+        "cantidad": 0
+    },
+    {
+        "nombre": "Barra BT",
+        "precio": 60000,
+        "descripcion": "Barra estilo Bar con ranuras en formato cava, con cubierta lisa de pino barnizado, que soporta 30 kg de carga. Ideal para decorar espacios dedicados.",
+        "imagen": "../media/barra-botellas.jpg",
+        "cantidad": 0
+    }
+]
+  
