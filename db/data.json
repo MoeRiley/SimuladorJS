@@ -1,10 +1,10 @@
 [
     {
         "nombre": "Cart TE 30",
-        "precio": 1000,
+        "precio": 180000,
         "descripcion": "Carro de Terciado de pino barnizado, con cubierta lisa, que soporta 30 kg de carga. Ideal para todo tipo de eventos.",
         "imagen": "../media/carrito-te30.jpg",
-        "cantidad": 1
+        "cantidad": 0
     },
     {
         "nombre": "Cart RD 60",

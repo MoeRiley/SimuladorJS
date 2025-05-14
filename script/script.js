@@ -1,9 +1,9 @@
 let productos = []
 
-class produc {
+class product {
     static id = 0
     constructor (nombre, precio, descripcion, imagen, cantidad) {
-        this.id = ++produc.id,
+        this.id = ++product.id,
         this.nombre = nombre,
         this.precio = precio,
         this.descripcion = descripcion,
@@ -12,10 +12,25 @@ class produc {
     }
 }
 
-productos.push(new produc("Cart TE 30", 180000, "Carro de Terciado de pino barnizado, con cubierta lisa, que soporta 30 kg de carga. Ideal para todo tipo de eventos.", "./media/carrito-te30.jpg", 0))
-productos.push(new produc("Cart RD 60", 200000, "Carro de Terciado Ranurado de pino barnizado, con cubierta lisa, que soporta 30 kg de carga. Ideal para todo tipo de eventos.", "./media/carrito-rd30.jpg", 0))
-productos.push(new produc("Barra JD", 90000, "Barra de Barriles Jack Daniels, con cubierta lisa de pino barnizado, que soporta 30 kg de carga. Ideal para eventos de catering y mixología.", "./media/barra-tarros.jpg", 0))
-productos.push(new produc("Barra BT", 60000, "Barra estilo Bar con ranuras en formato cava, con cubierta lisa de pino barnizado, que soporta 30 kg de carga. Ideal para decorar espacios dedicados.", "./media/barra-botellas.jpg", 0))
+const cargarProductos = async () => {
+    const res = await fetch("../db/data.json")
+    const productosRes = await res.json()
+    console.log(productos.length)
+    productosRes.forEach((producto) => {
+        console.log(producto)
+        productos.push(new product(
+            producto.nombre,
+            producto.precio,
+            producto.descripcion,
+            producto.imagen,
+            producto.cantidad
+        ))
+    });
+    console.log(productos.length)
+    renderProductos(productos);
+  };
+
+cargarProductos();
 
 let cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
 console.log(cartProducts)
@@ -44,24 +59,6 @@ function renderProductos(productsArray) {
     })
     addToCartButton()
 }
-renderProductos(productos)
-
-//botton mas y menos
-let sumar = document.getElementById("plus-button")
-let restar = document.getElementById("minus-button")
-let counter = document.getElementById("counter")
-let contador = 0
-
-sumar.onclick = () => {
-    contador++
-    counter.innerHTML = contador
-}
-
-restar.onclick = () => {
-    contador--
-    counter.innerHTML = contador
-}
-
 
 function addToCartButton () {
     addButton = document.querySelectorAll(".productoAgregar")
@@ -70,16 +67,12 @@ function addToCartButton () {
             const productId= e.currentTarget.id
             const selectedProduct = productos.find(producto => producto.id == productId)
             let cartProduct =  cartProducts.find(producto => producto.id == productId)
-            // Si no existe el producto en el carro
             if (!cartProduct) {
-                // Agregar producto nuevo al carro
-                cartProducts.push(selectedProduct) // se agrega con cant 0 por eso abajo tb se le agrega 1
+                cartProducts.push(selectedProduct)
                 cartProduct = cartProducts.find(producto => producto.id == productId)
             }
             console.log(cartProduct)
-            // Agregar uno a la cantidad de cartProduct
             cartProduct['cantidad'] += 1    
-            // Actualizar info de carrito en local storage
             localStorage.setItem("cartProducts", JSON.stringify(cartProducts))
         }
     })
