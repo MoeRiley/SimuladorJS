@@ -15,9 +15,7 @@ class product {
 const cargarProductos = async () => {
     const res = await fetch("../db/data.json")
     const productosRes = await res.json()
-    console.log(productos.length)
     productosRes.forEach((producto) => {
-        console.log(producto)
         productos.push(new product(
             producto.nombre,
             producto.precio,
@@ -26,14 +24,12 @@ const cargarProductos = async () => {
             producto.cantidad
         ))
     });
-    console.log(productos.length)
     renderProductos(productos);
   };
 
 cargarProductos();
 
 let cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
-console.log(cartProducts)
 
 let productsContainer = document.getElementById("products-container")
 
@@ -71,7 +67,6 @@ function addToCartButton () {
                 cartProducts.push(selectedProduct)
                 cartProduct = cartProducts.find(producto => producto.id == productId)
             }
-            console.log(cartProduct)
             cartProduct['cantidad'] += 1    
             localStorage.setItem("cartProducts", JSON.stringify(cartProducts))
         }

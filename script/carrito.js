@@ -63,7 +63,6 @@ function addOneToCart () {
     plusButton = document.querySelectorAll(".plus")
     plusButton.forEach(button => {
         button.onclick = (e) => {
-            console.log('clickenboton')
             const productId= e.currentTarget.id
             let cartProduct =  cartProducts.find(producto => producto.id == productId)
             cartProduct['cantidad'] += 1
@@ -79,7 +78,6 @@ function removeOneToCart () {
     minusButton.forEach(button => {
         button.onclick = (e) => {
             const productId = Number(e.currentTarget.id);
-            console.log(productId)
             let cartProduct =  cartProducts.find(producto => producto.id == productId)
             cartProduct['cantidad'] -= 1
             if (cartProduct['cantidad'] == 0) {
