@@ -43,9 +43,9 @@ function renderProductos(productsArray) {
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
-                                            <h3 class="card-title">${producto.nombre}</h3>
-                                            <p class="card-text">${producto.descripcion}</p>
-                                            <p class="card-text">$${producto.precio}</p>
+                                            <h3 class="card-title mb-5">${producto.nombre}</h3>
+                                            <p class="card-text mb-5">${producto.descripcion}</p>
+                                            <p class="card-text mb-5">$${producto.precio}</p>
                                             <button class="productoAgregar btn btn-primary" id="${producto.id}">Agregar</button>
                                         </div>
                                     </div>

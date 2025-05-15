@@ -7,19 +7,19 @@ let cartContainer = document.getElementById("cart-section")
 function renderCarrito(cartItems) {
     cartItems.forEach(producto => {
         const cart = document.createElement("div")
-        cart.innerHTML =   `<div class="card mb-3 text-center" style="max-width: 540px;">
+        cart.innerHTML =   `<div class="card mb-3 text-center">
                                 <div class="row g-0">
                                     <div class="col-md-4">
                                         <img src=${producto.imagen} class="img-fluid rounded-start" alt="Imagen del Producto">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
-                                            <h3 class="card-title">${producto.nombre}</h3>
-                                            <p class="card-text">$${producto.precio}</p>
+                                            <h3 class="card-title mb-5">${producto.nombre}</h3>
+                                            <p class="card-text mb-5">$${producto.precio}</p>
                                             <div class="d-flex justify-content-center align-items-center gap-3">
-                                                <button class="btn btn-secondary minus" id="${producto.id}">-</button>
-                                                <span class="counter" id="counter-${producto.id}">${producto.cantidad}</span>
-                                                <button class="btn btn-primary plus" id="${producto.id}">+</button>
+                                                <button class="btn btn-secondary minus mb-5" id="${producto.id}">-</button>
+                                                <span class="counter mb-5" id="counter-${producto.id}">${producto.cantidad}</span>
+                                                <button class="btn btn-primary plus mb-5" id="${producto.id}">+</button>
                                             </div>
                                             <button class="productoEliminar btn btn-danger" id="${producto.id}">Eliminar</button>
                                         </div>

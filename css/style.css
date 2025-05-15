@@ -15,7 +15,9 @@ main {
     padding: 20px;
 }
 
-a.btn-outline-primary {text-decoration: none;}
+a.btn-outline-primary {
+    text-decoration: none;
+}
 
 h1 {
     text-align: center;
