@@ -13,23 +13,34 @@ class product {
 }
 
 const cargarProductos = async () => {
-    const res = await fetch("../db/data.json")
-    const productosRes = await res.json()
-    productosRes.forEach((producto) => {
-        productos.push(new product(
-            producto.nombre,
-            producto.precio,
-            producto.descripcion,
-            producto.imagen,
-            producto.cantidad
-        ))
-    });
-    renderProductos(productos);
-  };
+    const productosError = "<span>Lo sentimos, no se pudieron cargar los productos. Intentelo mas tarde</span>"
 
-cargarProductos();
+    try {
+        const res = await fetch("../db/data.json")
+        const productosRes = await res.json()
 
-let cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
+        productosRes.forEach((producto) => {
+            productos.push(new product(
+                producto.nombre,
+                producto.precio,
+                producto.descripcion,
+                producto.imagen,
+                producto.cantidad
+            ))
+        })
+    }catch (err) {
+        console.log("Error detectado", err)
+        const container = document.getElementById("products-container")
+        if (container) productsContainer.innerHTML = productosError
+        
+    } finally {
+        renderProductos(productos)
+    }    
+}
+
+cargarProductos()
+
+let cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || []
 
 let productsContainer = document.getElementById("products-container")
 

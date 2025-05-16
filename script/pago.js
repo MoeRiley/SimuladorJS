@@ -4,8 +4,6 @@ cartStorage = JSON.parse(cartStorage)
 
 const subtotal = cartStorage.reduce((contador, producto) => contador + producto.precio*producto.cantidad, 0)
 const iva = subtotal*119/100
-console.log(subtotal)
-console.log(iva)
 
 let precioFinal = document.getElementById("totalapagar")
 const card3 = document.createElement("div")
