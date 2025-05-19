@@ -58,10 +58,22 @@ function deleteElementButton() {
 
 function clearEmptyProduct(id){
     const productId = id
+    const deletedProduct = cartProducts.find(producto => producto.id === productId)
     cartProducts = cartProducts.filter(producto => producto.id !== productId)
     localStorage.setItem("cartProducts", JSON.stringify(cartProducts))
     if (cartContainer) { cartContainer.innerHTML = "" }
     renderCarrito(cartProducts)
+    Toastify({
+        text: `${deletedProduct.nombre} eliminado del carrito`,
+        duration: 3000,
+        close: true,
+        gravity: "top",
+        position: "center",
+        stopOnFocus: true,
+        style: {
+            background: "linear-gradient(to right, #ff5f6d, #ffc371)"
+        }
+    }).showToast()
 }
 
 let clearCarrito = document.getElementById("clear")

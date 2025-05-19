@@ -80,6 +80,18 @@ function addToCartButton () {
             }
             cartProduct['cantidad'] += 1    
             localStorage.setItem("cartProducts", JSON.stringify(cartProducts))
+
+            Toastify({
+                text: `${selectedProduct.nombre} ha sido agregado al carrito`,
+                duration: 2000,
+                close: true,
+                gravity: "top",
+                position: "center",
+                stopOnFocus: true,
+                style: {
+                    background: "linear-gradient(to right,rgb(8, 93, 219),rgb(143, 216, 238))"
+                }
+            }).showToast()
         }
     })
 }
