@@ -66,8 +66,28 @@ function clearEmptyProduct(id){
 
 let clearCarrito = document.getElementById("clear")
 clearCarrito.onclick = () => {
-    localStorage.clear()
-    cartContainer.innerHTML = ""
+    Swal.fire({
+        title: "Estás seguro?",
+        text: "Esto eliminará todos los productos del carrito!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sí, vaciar carrito",
+        cancelButtonText: "Cancelar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            localStorage.clear()
+            cartProducts = []
+            cartContainer.innerHTML = "<span>El carrito está vacío.</span>"
+            
+            Swal.fire({
+                title: "Carrito vaciado!",
+                text: "Todos los productos fueron eliminados.",
+                icon: "success"
+            })
+        }
+    });
 }
 
 function addOneToCart () {

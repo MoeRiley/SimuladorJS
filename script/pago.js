@@ -11,3 +11,13 @@ card3.innerHTML =   `<p>Subtotal: $${subtotal}</p>
                     <p>+ IVA</p>
                     <p>Total a pagar: $${iva}</p>`
 precioFinal.appendChild(card3)
+
+const botonPagar = document.getElementById("botonPagar")
+
+botonPagar.onclick = () => {
+    Swal.fire({
+        title: "Productos comprados exitosamente!",
+        icon: "success",
+        draggable: true
+    })
+}
