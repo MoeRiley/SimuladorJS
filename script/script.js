@@ -16,7 +16,7 @@ const cargarProductos = async () => {
     const productosError = "<span>Lo sentimos, no se pudieron cargar los productos. Intentelo mas tarde</span>"
 
     try {
-        const res = await fetch("./db/data.json")
+        const res = await fetch("../db/data.json")
         const productosRes = await res.json()
 
         productosRes.forEach((producto) => {
