@@ -13,7 +13,7 @@ try {
 }
 
 if (cartProducts.length === 0) {
-    cartContainer.innerHTML = "<span>El carrito está vacío.</span>"
+    cartContainer.innerHTML = `<div class="text-center">El carrito está vacío.</div>`
 } else {
     function renderCarrito(cartItems) {
         cartItems.forEach(producto => {
@@ -91,7 +91,7 @@ clearCarrito.onclick = () => {
         if (result.isConfirmed) {
             localStorage.clear()
             cartProducts = []
-            cartContainer.innerHTML = "<span>El carrito está vacío.</span>"
+            cartContainer.innerHTML = `<div class="text-center">El carrito está vacío.</div>`
             
             Swal.fire({
                 title: "Carrito vaciado!",
