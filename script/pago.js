@@ -1,9 +1,20 @@
 let cartStorage = localStorage.getItem("cartProducts")
- 
-cartStorage = JSON.parse(cartStorage)
+let subtotal = 0
+let iva = 0
 
-const subtotal = cartStorage.reduce((contador, producto) => contador + producto.precio*producto.cantidad, 0)
-const iva = subtotal*119/100
+try {
+    cartStorage = JSON.parse(cartStorage)
+    subtotal = cartStorage.reduce((contador, producto) => contador + producto.precio*producto.cantidad, 0)
+    iva = subtotal*119/100
+} catch (err) {
+    Swal.fire({
+        title: "El carrito de compras esta vacío.",
+        text: "No se puede realizar la operación.",
+        icon: "error",
+        confirmButtonText: '<a id="vuelta" href="../pages/productos.html">Volver</a>'
+    })
+    cartStorage = []
+}
 
 let precioFinal = document.getElementById("totalapagar")
 const card3 = document.createElement("div")

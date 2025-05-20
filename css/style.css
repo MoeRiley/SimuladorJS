@@ -21,6 +21,12 @@ a.btn-outline-primary {
     text-decoration: none;
 }
 
+#vuelta {
+    text-decoration: none;
+    color: inherit;
+    text-decoration: none;
+}
+
 h1 {
     text-align: center;
 }
