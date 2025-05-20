@@ -4,6 +4,10 @@ let iva = 0
 
 try {
     cartStorage = JSON.parse(cartStorage)
+    if (cartStorage.length === 0) {
+        throw new Error("Carrito con datos inválidos")
+    }
+    
     subtotal = cartStorage.reduce((contador, producto) => contador + producto.precio*producto.cantidad, 0)
     iva = subtotal*119/100
 } catch (err) {
