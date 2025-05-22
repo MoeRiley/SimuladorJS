@@ -10,12 +10,16 @@ try {
     
     subtotal = cartStorage.reduce((contador, producto) => contador + producto.precio*producto.cantidad, 0)
     iva = subtotal*119/100
+    
+    tarjeta()
+
 } catch (err) {
     Swal.fire({
         title: "El carrito de compras esta vacío.",
         text: "No se puede realizar la operación.",
         icon: "error",
-        confirmButtonText: '<a id="vuelta" href="../pages/productos.html">Volver</a>'
+        confirmButtonText: '<a id="vuelta" href="../pages/productos.html">Volver</a>',
+        allowOutsideClick: false
     })
     cartStorage = []
 }
@@ -51,4 +55,40 @@ botonPagar.onclick = () => {
             localStorage.removeItem("cartProducts")
         }
     })
+}
+
+function tarjeta() {
+    Swal.fire({
+        title: "Ingrese el número de su tarjeta de crédito",
+        input: "text",
+        showCancelButton: false,
+        confirmButtonText: "Confirmar",
+        showLoaderOnConfirm: true,
+        preConfirm: async (inputValue) => {
+            try {
+                const response = await fetch("../db/usuario.json")
+                if (!response.ok) {
+                    throw new Error("No se pudo cargar el archivo JSON")
+                }
+                const data = await response.json()
+                const tarjetaValida = data[0].tarjeta
+
+                if (inputValue !== tarjetaValida) {
+                    throw new Error("Número de tarjeta incorrecto")
+                }
+                return true
+            } catch (error) {
+                Swal.showValidationMessage(`Error: ${error.message}`)
+            }
+        },
+        allowOutsideClick: false
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                icon: "success",
+                title: "Tarjeta válida",
+                text: "Tarjeta aceptada."
+            });
+        }
+    });
 }
